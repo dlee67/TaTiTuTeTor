@@ -9,12 +9,19 @@
     <LinearLayout
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:orientation="vertical"
         android:layout_centerInParent="true"
         android:layout_centerHorizontal="true"
         android:layout_centerVertical="true">
         <Button
+            android:id="@+id/prizes_button"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Prizes"/>
+        <Button
+            android:id="@+id/pictures_button"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Pictures"/>
     </LinearLayout>
 </RelativeLayout>
