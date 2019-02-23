@@ -26,7 +26,8 @@ class MainActivity : AppCompatActivity(), View.OnClickListener {
 
     override fun onClick(v: View){
         when(v.id){
-            R.id.prizes_button -> Intent(this, )
+            R.id.prizes_button -> startActivity(
+                Intent(this, PrizesActivity::class.java))
             R.id.pictures_button -> Log.i("dhl", "Dad, checkout where I am at.")
         }
     }
