@@ -23,6 +23,9 @@
         </activity>
         <activity android:name=".PrizesActivity"/>
         <activity android:name=".TaskActivity"/>
+        <activity android:name=".Finisher"/>
+        <receiver
+            android:name=".TaskReceiver"
+            android:exported="true"/>
     </application>
-
 </manifest>

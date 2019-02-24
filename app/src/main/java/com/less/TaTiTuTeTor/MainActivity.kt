@@ -25,9 +25,6 @@ class MainActivity : AppCompatActivity(), View.OnClickListener {
         prizesButton = this.findViewById(R.id.prizes_button)
         prizesButton.setOnClickListener(this)
 
-        picturesButton = this.findViewById(R.id.pictures_button)
-        picturesButton.setOnClickListener(this)
-
         if (ContextCompat.checkSelfPermission(this, Manifest.permission.WRITE_EXTERNAL_STORAGE)
             != PackageManager.PERMISSION_GRANTED
             || ContextCompat.checkSelfPermission(this, Manifest.permission.CAMERA)
@@ -45,7 +42,6 @@ class MainActivity : AppCompatActivity(), View.OnClickListener {
         when(v.id){
             R.id.prizes_button -> startActivity(
                 Intent(this, PrizesActivity::class.java))
-            R.id.pictures_button -> Log.i("dhl", "Dad, checkout where I am at.")
         }
     }
 
