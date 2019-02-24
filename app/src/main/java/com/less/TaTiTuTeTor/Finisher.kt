@@ -18,10 +18,14 @@ class Finisher : AppCompatActivity() {
     val REQUEST_IMAGE_CAPTURE = 112
     lateinit var storage: FirebaseStorage
     lateinit var database: DatabaseReference
+    lateinit var savedOn: String
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         storage = FirebaseStorage.getInstance()
+
+        savedOn = Calendar.getInstance().getTime().toString()
+
         Intent(MediaStore.ACTION_IMAGE_CAPTURE).also { takePictureIntent ->
             takePictureIntent.resolveActivity(packageManager)?.also {
                 startActivityForResult(takePictureIntent, REQUEST_IMAGE_CAPTURE)
@@ -29,7 +33,11 @@ class Finisher : AppCompatActivity() {
         }
         // The entirity of the DataBase reference acts as the parent node, where the indices acts as the child node.
         database = FirebaseDatabase.getInstance().getReference().child("" + intent.getIntExtra("prizeIndex", -1))
-        database.removeValue()
+        var newPrize = Prize(
+            intent.getStringExtra("prizeName"),
+            intent.getStringExtra("requiredHours"),
+            savedOn)
+        database.setValue(newPrize)
     }
 
     override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
