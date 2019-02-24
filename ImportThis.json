@@ -1,12 +1,12 @@
 [{
     "prizeName": "I can play Halo 3 for 3 hours",
-    "prizeTask": "Bike a mile"
+    "requiredHours": "1"
 },
 {
   "prizeName": "I can play Fortnite for 2 hours",
-  "prizeTask": "Bike two miles"
+  "requiredHours": "2"
 },
 {
   "prizeName": "Dad will buy me a house and pay my entire college tuition!",
-  "prizeTask": "Go learn Haskell and teach your dad how to program in it."
+  "requiredHours": "0"
 }]

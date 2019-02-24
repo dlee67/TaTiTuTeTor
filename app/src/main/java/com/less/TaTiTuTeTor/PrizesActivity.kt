@@ -26,6 +26,8 @@ class PrizesActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.prizes_view)
 
+        // Just like the other Firebase services, I need the reference to do anything on it.
+        // The below apparently fetches me the entire Real Time Database?
         database = FirebaseDatabase.getInstance().getReference()
 
         recyclerView = findViewById(R.id.prizes_recycler_view)
@@ -41,18 +43,21 @@ class PrizesActivity : AppCompatActivity() {
             override fun onDataChange(dataSnapshot: DataSnapshot) {
                 var newPrize: Prize
                 var prizeList = ArrayList<Prize>()
+                // So, the getValue() returns an object, and the documentation
+                // has a list of objects it could return.
+                // https://firebase.google.com/docs/reference/android/com/google/firebase/database/DataSnapshot.html#getValue(boolean)
                 val value = dataSnapshot.getValue() as List<Map<*, *>>
                 for(prize in value){
                     newPrize = Prize()
                     newPrize.prizeName = prize.get("prizeName").toString()
-                    newPrize.prizeTask = prize.get("prizeTask").toString()
+                    newPrize.requiredHours = prize.get("requiredHours").toString()
                     prizeList.add(newPrize)
                 }
                 recyclerView.setAdapter(PrizesAdapter(prizeList))
             }
 
             override fun onCancelled(error: DatabaseError) {
-                Log.i("dhl", "" + error.message )
+                Log.i("dhl", "" + error.message)
             }
         })
     }

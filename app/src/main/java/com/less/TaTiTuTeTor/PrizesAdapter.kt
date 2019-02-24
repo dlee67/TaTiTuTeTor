@@ -27,12 +27,15 @@ class PrizesAdapter(dataSet: ArrayList<Prize>) : RecyclerView.Adapter<PrizesAdap
 
     override fun onBindViewHolder(holder: PrizesAdapter.PrizeHolder, position: Int) {
         holder.prizeView.setText(prizes.get(position).prizeName)
+        var requiredHours = prizes.get(position).requiredHours
         holder.prizeView.setOnClickListener {
             AlertDialog.Builder(it.context)
-                .setMessage(prizes.get(position).prizeTask)
+                .setMessage("Go bike for: " + requiredHours
+                            + " hours")
                 .setPositiveButton("START"){_,_ ->
                     it.context.startActivity(
-                        Intent(it.context, TaskActivity::class.java))
+                        Intent(it.context, TaskActivity::class.java)
+                            .putExtra("requiredHours", requiredHours))
                 }.show()
         }
     }
