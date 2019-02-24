@@ -18,8 +18,8 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".PrizesActivity">
-        </activity>
+        <activity android:name=".PrizesActivity"/>
+        <activity android:name=".TaskActivity"/>
     </application>
 
 </manifest>

@@ -17,7 +17,6 @@ import org.json.JSONObject
 
 class PrizesActivity : AppCompatActivity() {
 
-    lateinit var prizeList: ArrayList<Prize>
     lateinit var recyclerView: RecyclerView
     lateinit var prizesAdapter: RecyclerView.Adapter<PrizesAdapter.PrizeHolder>
     lateinit var layoutManager: RecyclerView.LayoutManager
@@ -33,11 +32,7 @@ class PrizesActivity : AppCompatActivity() {
         layoutManager = LinearLayoutManager(this)
         recyclerView.setLayoutManager(layoutManager)
 
-        prizeList = ArrayList<Prize>()
         populatePrizes()
-
-        prizesAdapter = PrizesAdapter(prizeList)
-        //recyclerView.setAdapter(prizesAdapter)
 
     }
 
@@ -45,6 +40,7 @@ class PrizesActivity : AppCompatActivity() {
         database.addValueEventListener(object : ValueEventListener {
             override fun onDataChange(dataSnapshot: DataSnapshot) {
                 var newPrize: Prize
+                var prizeList = ArrayList<Prize>()
                 val value = dataSnapshot.getValue() as List<Map<*, *>>
                 for(prize in value){
                     newPrize = Prize()
@@ -52,6 +48,7 @@ class PrizesActivity : AppCompatActivity() {
                     newPrize.prizeTask = prize.get("prizeTask").toString()
                     prizeList.add(newPrize)
                 }
+                recyclerView.setAdapter(PrizesAdapter(prizeList))
             }
 
             override fun onCancelled(error: DatabaseError) {
