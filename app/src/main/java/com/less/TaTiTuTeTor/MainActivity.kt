@@ -58,7 +58,7 @@ class MainActivity : AppCompatActivity(), View.OnClickListener {
         }
     }
 
-    fun startParenting(){
-
+    fun startParenting(v: View){
+        startActivity(Intent(this, ParentActivity::class.java))
     }
 }

@@ -24,6 +24,7 @@
         <activity android:name=".PrizesActivity"/>
         <activity android:name=".TaskActivity"/>
         <activity android:name=".Finisher"/>
+        <activity android:name=".ParentActivity" />
         <receiver
             android:name=".TaskReceiver"
             android:exported="true"/>

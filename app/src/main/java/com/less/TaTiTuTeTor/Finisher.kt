@@ -24,7 +24,7 @@ class Finisher : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         storage = FirebaseStorage.getInstance()
 
-        savedOn = Calendar.getInstance().getTime().toString()
+        savedOn = Calendar.getInstance().getTime().toString().substring(0, 15)
 
         Intent(MediaStore.ACTION_IMAGE_CAPTURE).also { takePictureIntent ->
             takePictureIntent.resolveActivity(packageManager)?.also {
@@ -48,7 +48,7 @@ class Finisher : AppCompatActivity() {
                     // Used https://stackoverflow.com/questions/7698409/android-transform-a-bitmap-into-an-input-stream
                     val imageBitmap = data?.extras?.get("data") as Bitmap
                     var uploadReference = storage.getReferenceFromUrl("gs://tatitutetor.appspot.com")
-                        .child(Calendar.getInstance().getTime().toString())
+                        .child(savedOn)
                     var byteArrayOutputStream = ByteArrayOutputStream()
                     imageBitmap.compress(Bitmap.CompressFormat.PNG, 0, byteArrayOutputStream)
                     var byteArrayInputStream = ByteArrayInputStream(byteArrayOutputStream.toByteArray())
