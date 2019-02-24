@@ -7,6 +7,10 @@ import android.support.v4.content.ContextCompat.startActivity
 
 class TaskReceiver: BroadcastReceiver() {
     override fun onReceive(context: Context?, intent: Intent?) {
-        context!!.startActivity(Intent(context!!, Finisher::class.java).setFlags(Intent.FLAG_ACTIVITY_NEW_TASK))
+        context!!.startActivity(Intent(context!!, Finisher::class.java)
+            .setFlags(Intent.FLAG_ACTIVITY_NEW_TASK)
+            .putExtra("prizeName", intent!!.getStringExtra("prizeName"))
+            .putExtra("requiredHours", intent!!.getStringExtra("requiredHours"))
+            .putExtra("prizeIndex", intent.getIntExtra("prizeIndex", -1)))
     }
 }

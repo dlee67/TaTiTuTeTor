@@ -58,4 +58,7 @@ class MainActivity : AppCompatActivity(), View.OnClickListener {
         }
     }
 
+    fun startParenting(){
+
+    }
 }

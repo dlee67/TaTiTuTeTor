@@ -1,12 +1,15 @@
 [{
     "prizeName": "I can play Halo 3 for 3 hours",
-    "requiredHours": "1"
+    "requiredHours": "1",
+    "done": "false"
 },
 {
   "prizeName": "I can play Fortnite for 2 hours",
-  "requiredHours": "2"
+  "requiredHours": "2",
+  "done": "false"
 },
 {
   "prizeName": "Dad will buy me a house and pay my entire college tuition!",
-  "requiredHours": "0"
+  "requiredHours": "0",
+  "done": "false"
 }]

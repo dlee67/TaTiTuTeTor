@@ -6,6 +6,8 @@ import android.graphics.Bitmap
 import android.os.Bundle
 import android.provider.MediaStore
 import android.support.v7.app.AppCompatActivity
+import com.google.firebase.database.DatabaseReference
+import com.google.firebase.database.FirebaseDatabase
 import com.google.firebase.storage.FirebaseStorage
 import java.io.ByteArrayInputStream
 import java.io.ByteArrayOutputStream
@@ -15,6 +17,7 @@ class Finisher : AppCompatActivity() {
 
     val REQUEST_IMAGE_CAPTURE = 112
     lateinit var storage: FirebaseStorage
+    lateinit var database: DatabaseReference
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -24,6 +27,9 @@ class Finisher : AppCompatActivity() {
                 startActivityForResult(takePictureIntent, REQUEST_IMAGE_CAPTURE)
             }
         }
+        // The entirity of the DataBase reference acts as the parent node, where the indices acts as the child node.
+        database = FirebaseDatabase.getInstance().getReference().child("" + intent.getIntExtra("prizeIndex", -1))
+        database.removeValue()
     }
 
     override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {

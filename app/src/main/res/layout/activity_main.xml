@@ -18,5 +18,12 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Prizes"/>
+        <Button
+            android:id="@+id/I_am_your_father"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="I am your dad."
+            android:onClick="startParenting"
+        />
     </LinearLayout>
 </RelativeLayout>

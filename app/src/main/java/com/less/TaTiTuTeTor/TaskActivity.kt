@@ -40,6 +40,9 @@ class TaskActivity : AppCompatActivity(){
         chronometer = findViewById(R.id.task_timer)
 
         var broadcastIntent = Intent(this, TaskReceiver::class.java)
+            .putExtra("prizeName", intent.getStringExtra("prizeName"))
+            .putExtra("requiredHours", intent.getStringExtra("requiredHours"))
+            .putExtra("prizeIndex", intent.getIntExtra("prizeIndex", -1))
         var pendingIntent = PendingIntent.getBroadcast(this,
             101, broadcastIntent, PendingIntent.FLAG_UPDATE_CURRENT)
 
