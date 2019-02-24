@@ -15,15 +15,20 @@
         android:layout_centerVertical="true">
         <Button
             android:id="@+id/prizes_button"
-            android:layout_width="wrap_content"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Prizes"/>
+            android:backgroundTint="@android:color/white"
+            android:elevation="256dp"
+            android:padding="5dp"
+            android:text="Missions"/>
         <Button
             android:id="@+id/I_am_your_father"
-            android:layout_width="wrap_content"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="I am your dad."
-            android:onClick="startParenting"
-        />
+            android:backgroundTint="@android:color/white"
+            android:elevation="256dp"
+            android:padding="5dp"
+            android:text="Guardian"
+            android:onClick="startParenting"/>
     </LinearLayout>
 </RelativeLayout>

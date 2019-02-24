@@ -1,15 +1,20 @@
 [{
-    "prizeName": "I can play Halo 3 for 3 hours",
+    "prizeName": "Allowence to play Halo 3 for 5 hours.",
     "requiredHours": "1",
     "done": "false"
 },
 {
-  "prizeName": "I can play Fortnite for 2 hours",
+  "prizeName": "Allowence to play Fortnite for 10 hours.",
   "requiredHours": "2",
   "done": "false"
 },
 {
-  "prizeName": "Dad will buy me a house and pay my entire college tuition!",
+  "prizeName": "Allowence to bring Nintendo Switch with you to school.",
+  "requiredHours": "2",
+  "done": "false"
+},
+{
+  "prizeName": "Testing",
   "requiredHours": "0",
   "done": "false"
 }]
