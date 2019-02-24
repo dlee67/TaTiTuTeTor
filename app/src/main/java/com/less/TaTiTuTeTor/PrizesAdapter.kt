@@ -1,5 +1,6 @@
 package com.less.TaTiTuTeTor
 
+import android.content.Intent
 import android.support.v7.widget.RecyclerView
 import android.view.LayoutInflater
 import android.view.View
@@ -9,9 +10,9 @@ import android.widget.TextView
 import com.google.firebase.database.DatabaseReference
 import com.google.firebase.database.FirebaseDatabase
 
-class PrizesAdapter(dataSet: ArrayList<String>) : RecyclerView.Adapter<PrizesAdapter.PrizeHolder>() {
+class PrizesAdapter(dataSet: ArrayList<Prize>) : RecyclerView.Adapter<PrizesAdapter.PrizeHolder>() {
 
-    var prizes: ArrayList<String> = dataSet
+    var prizes: ArrayList<Prize> = dataSet
     var database = FirebaseDatabase.getInstance().reference
 
     class PrizeHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
@@ -26,9 +27,9 @@ class PrizesAdapter(dataSet: ArrayList<String>) : RecyclerView.Adapter<PrizesAda
 
 
     override fun onBindViewHolder(holder: PrizesAdapter.PrizeHolder, position: Int) {
-        holder.prizeView.setText(prizes.get(position))
+        holder.prizeView.setText(prizes.get(position).prizeName)
         holder.prizeView.setOnClickListener {
-            //Comunicate with Firebase?
+            it.context.startActivity(Intent(it.context, TaskActivity::class.java))
         }
     }
 

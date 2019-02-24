@@ -1,6 +1,12 @@
+[{
+    "prizeName": "Halo 3 3 hours",
+    "prizeTask": "Bike a mile"
+},
 {
-  "Prize": {
-    "prizeName": "Guko strikes back.",
-    "prizeTask": "Bike a mile, son."
-  }
-}
+  "prizeName": "Fortnite 2 hours",
+  "prizeTask": "Bike two miles"
+},
+{
+  "prizeName": "Dad will buy me a house",
+  "prizeTask": "Go learn Haskell and teach your dad how to program in it."
+}]
